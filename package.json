@@ -1,0 +1,35 @@
+{
+  "name": "xrp-provider",
+  "version": "0.0.2",
+  "description": "makes it easy to work with a ripple wallet",
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "babel --presets es2015,stage-0 -d lib/ src/",
+    "prepublish": "npm run build",
+    "start": "babel-node --presets es2015 src/index.js"
+  },
+  "author": "vlad88vlad",
+  "license": "ISC",
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/rescrypto/xrp-provider"
+  },
+  "keywords": [
+    "xrp",
+    "ripple",
+    "provider",
+    "ripple provider",
+    "ripple wallet",
+    "wallet"
+  ],
+  "dependencies": {
+    "ripple-lib": "^1.0.0-beta.3",
+    "ripple-keypairs": "^0.10.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-stage-0": "^6.24.1",
+    "babel-register": "^6.24.1"
+  }
+}
