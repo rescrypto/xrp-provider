@@ -25,6 +25,14 @@ const rippleProvider = new RippleProvider('testnet'); // or mainnet
 ```javascript
 const privateKey = rippleProvider.createPrivateKey();
 ```
+#### Create private key from mnemonic ####
+```javascript
+const privateKey = rippleProvider.createPrivateKeyFromMnemonic(mnemonic);
+
+let mnemonic = 'absurd green cannon quarter call spray upper diet defense convince live assist'
+or 
+let mnemonic = rippleProvider.generateMnemonic()
+```
 #### Create public key ####
 ```javascript
 const publicKey = rippleProvider.getAddress(privateKey);

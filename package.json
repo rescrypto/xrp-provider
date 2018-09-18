@@ -1,6 +1,6 @@
 {
   "name": "xrp-provider",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "description": "makes it easy to work with a ripple wallet",
   "main": "lib/index.js",
   "scripts": {
@@ -11,8 +11,8 @@
   "author": "vlad88vlad",
   "license": "ISC",
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/rescrypto/xrp-provider"
+    "type": "git",
+    "url": "https://github.com/rescrypto/xrp-provider"
   },
   "keywords": [
     "xrp",
@@ -23,8 +23,10 @@
     "wallet"
   ],
   "dependencies": {
-    "ripple-lib": "^1.0.0-beta.3",
-    "ripple-keypairs": "^0.10.1"
+    "bip39": "^2.5.0",
+    "ripple-bip32": "0.0.3",
+    "ripple-keypairs": "^0.10.1",
+    "ripple-lib": "^1.0.0-beta.3"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",

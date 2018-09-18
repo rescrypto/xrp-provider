@@ -1,6 +1,9 @@
 import {RippleAPI} from 'ripple-lib';
 import * as rippleKeypairs from 'ripple-keypairs';
 
+import * as bip39 from 'bip39';
+import * as bip32 from 'ripple-bip32';
+
 export default class RippleProvider {
     constructor(network) {
         this.url = 'https://data.ripple.com/v2/accounts/';
@@ -22,6 +25,19 @@ export default class RippleProvider {
         return this.api.generateAddress().secret
 
     }
+    generateMnemonic() {
+
+        return bip39.generateMnemonic()
+
+    }
+    createPrivateKeyFromMnemonic(mnemonic) {
+        const seed = bip39.mnemonicToSeed(mnemonic);
+        const m = bip32.fromSeedBuffer(seed);
+        const keyPair = m.derivePath("m/44'/144'/0'/0/0").keyPair.getKeyPairs();
+        return keyPair.privateKey
+
+    }
+
 
     getAddress(secret) {
         let keypair = rippleKeypairs.deriveKeypair(secret);
