@@ -1,5 +1,5 @@
 
-##Ripple provider##
+## Ripple provide r##
 
 Makes it easy to work with a ripple wallet.
 
