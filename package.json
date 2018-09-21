@@ -1,12 +1,13 @@
 {
   "name": "xrp-provider",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "makes it easy to work with a ripple wallet",
   "main": "lib/index.js",
   "scripts": {
     "build": "babel --presets es2015,stage-0 -d lib/ src/",
     "prepublish": "npm run build",
-    "start": "babel-node --presets es2015 src/index.js"
+    "start": "babel-node --presets es2015 src/index.js",
+    "test": "babel-node --presets es2015 test/index.js"
   },
   "author": "vlad88vlad",
   "license": "ISC",
@@ -26,7 +27,8 @@
     "bip39": "^2.5.0",
     "ripple-bip32": "0.0.3",
     "ripple-keypairs": "^0.10.1",
-    "ripple-lib": "^1.0.0-beta.3"
+    "ripple-lib": "^1.0.0-beta.3",
+    "ripplelib": "^1.2.5"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",

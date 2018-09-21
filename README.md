@@ -1,4 +1,4 @@
-#Ripple provider
+## Ripple provider ##
 
 Makes it easy to work with a ripple wallet.
 
@@ -25,6 +25,7 @@ const rippleProvider = new RippleProvider('testnet'); // or mainnet
 ```javascript
 const privateKey = rippleProvider.createPrivateKey();
 ```
+
 #### Create private key from mnemonic ####
 ```javascript
 const privateKey = rippleProvider.createPrivateKeyFromMnemonic(mnemonic);
@@ -33,26 +34,52 @@ let mnemonic = 'absurd green cannon quarter call spray upper diet defense convin
 or 
 let mnemonic = rippleProvider.generateMnemonic()
 ```
+#### Create private key secret ####
+```javascript
+const privateKey = rippleProvider.createPrivateKeyFromSecret(secret);
+
+let secret = rippleProvider.generateSecret()
+
+```
 #### Create public key ####
 ```javascript
-const publicKey = rippleProvider.getAddress(privateKey);
+const publicKey = rippleProvider.createPublicKey(privateKey);
 ```
-
+#### Create address ####
+```javascript
+const address = rippleProvider.getAddress(publicKey);
+```
+#### Create address from secret ####
+```javascript
+const address = rippleProvider.getAddressFromSecret(secret);
+```
 #### Get balance ####
 ```javascript
-const balnce = rippleProvider.getBalance(publicKey);
+const balance = rippleProvider.getBalance(address);
 ```
-#### Create transaction ####
+#### Create transaction using key pair ####
 ```javascript
-rippleProvider.sendXRP(from, to, amount, privateKey).then(transaction=>{
+rippleProvider.sendXrp(publicKey, addressTo, amount, privateKey).then(transaction=>{
     console.log(transaction);
 });
 ```
 
 ```
-from - your public key 
-to - address of the recipient
+publicKey - your public key 
+addressTo - address of the recipient
 amount - amount in xrp
 privateKey - your private key
 ```
 
+#### Create transaction using secret ####
+```javascript
+rippleProvider.sendXrpUsingSecret(addressTo, amount, secret).then(transaction=>{
+    console.log(transaction);
+});
+```
+
+```
+addressTo - address of the recipient
+amount - amount in xrp
+secret - your secret
+```
